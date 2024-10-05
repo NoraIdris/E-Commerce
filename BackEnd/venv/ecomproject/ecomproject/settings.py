@@ -24,7 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ecomapp',
     'rest_framework',
-    "corsheaders"
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
