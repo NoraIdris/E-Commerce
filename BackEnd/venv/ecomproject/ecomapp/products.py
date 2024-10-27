@@ -1,4 +1,4 @@
-products = [
+Products = [
     {
       "_id":1,
       "productname": "Chair",

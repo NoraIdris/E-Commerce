@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Navbar, Nav } from 'react-bootstrap';
 
 function Header() {
   return (
     <>
-      <Header className="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+      <Navbar className="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
         <div className="container-fluid">
           <LinkContainer to="/">
             <Nav.Link className="navbar-brand">ikéhack</Nav.Link>
@@ -42,7 +42,7 @@ function Header() {
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  New User?
+                  New User ?
                 </Nav.Link>
                 </LinkContainer>
                 <div className="dropdown-menu">
@@ -71,7 +71,7 @@ function Header() {
             </form>
           </div>
         </div>
-      </Header>
+      </Navbar>
     </>
   );
 }
