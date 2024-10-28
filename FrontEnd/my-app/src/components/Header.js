@@ -9,7 +9,7 @@ function Header() {
       <Navbar className="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
         <div className="container-fluid">
           <LinkContainer to="/">
-            <Nav.Link className="navbar-brand">ikéhack</Nav.Link>
+            <Nav.Link className="navbar-brand">Ikéhack</Nav.Link>
           </LinkContainer>
           <button
             className="navbar-toggler"
@@ -26,12 +26,12 @@ function Header() {
             <ul className="navbar-nav me-auto">
               <li className="nav-item">
                 <LinkContainer to="/">
-                  <Nav.Link className="navbar-link active">Home</Nav.Link>
+                  <Nav.Link className="navbar-link active">Accueil</Nav.Link>
                 </LinkContainer>
               </li>
               <li className="nav-item">
                 <LinkContainer to="/cart">
-                  <Nav.Link className="nav-link">Cart</Nav.Link>
+                  <Nav.Link className="nav-link">Panier</Nav.Link>
                 </LinkContainer>
               </li>
               <li className="nav-item dropdown">
@@ -42,31 +42,31 @@ function Header() {
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  New User ?
+                  Nouvel utilisateur ?
                 </Nav.Link>
                 </LinkContainer>
                 <div className="dropdown-menu">
                 <LinkContainer to="/singup">
                   <Nav.Link className="dropdown-item" href="#">
-                    Login
+                    Se connecter
                   </Nav.Link>
                   </LinkContainer>
                   <LinkContainer to="/login">
                   <Nav.Link className="dropdown-item" href="#">
-                    Signup
+                    S'inscrire
                   </Nav.Link>
                   </LinkContainer>
                   <div className="dropdown-divider"></div>
                   <a className="dropdown-item" href="#">
-                    Logout
+                     Déconnexion
                   </a>
                 </div>
               </li>
             </ul>
             <form className="d-flex">
-              <input className="form-control me-sm-2" type="search" placeholder="Search" />
+              <input className="form-control me-sm-2" type="search" placeholder="Recherche" />
               <button className="btn btn-secondary my-2 my-sm-0" type="submit">
-                Search
+                  Recherche
               </button>
             </form>
           </div>

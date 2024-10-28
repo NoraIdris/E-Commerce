@@ -13,10 +13,9 @@ def getRoutes(request):
 
 @api_view(['GET'])
 def getProducts(request):
-    try:
         products = Products.objects.all()
         serializers = ProductsSerializers(products, many=True)
         return Response(serializers.data)
-    except Exception as e:
-        logger.error(f"Error fetching products: {e}")
-        return Response({"error": "Internal Server Error"}, status=500)
+    # except Exception as e:
+    #     logger.error(f"Error fetching products: {e}")
+    #     return Response({"error": "Internal Server Error"}, status=500)

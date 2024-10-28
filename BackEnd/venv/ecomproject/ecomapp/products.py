@@ -1,38 +1,38 @@
 Products = [
     {
       "_id":1,
-      "productname": "Chair",
-      "category": "furniture",
+      "productname": "Fauteuil",
+      "category": "Meubles",
       "price": 97
     },
       {
       "_id":2,
-      "productname": "Bed",
-      "category": "furniture",
+      "productname": "Lit adulte",
+      "category": "Meubles",
       "price": 1420
     },
     {
       "_id":3,
-      "productname": "Desk with Chair",
-      "category": "furniture",
+      "productname": "Bureau avec chaise",
+      "category": "Meubles",
       "price": 178
     },
       {
       "_id":4,
-      "productname": "Nightstand",
-      "category": "furniture",
+      "productname": "Table de nuit",
+      "category": "Meubles",
       "price": 74
     },
       {
       "_id":5,
-      "productname": "Sofa",
-      "category": "furniture",
-      "price": 785
+      "productname": "Canapé",
+      "category": "Meubles",
+      "price": 1986
     },
       {
       "_id":6,
-      "productname": "Wardrobe",
-      "category": "furniture",
+      "productname": "Armoire",
+      "category": "Meubles",
       "price": 1750
     }
 ]
