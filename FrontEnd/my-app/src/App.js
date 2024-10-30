@@ -7,6 +7,10 @@ import HomeScreen from './components/screens/HomeScreen';
 import SignupScreen from './components/screens/SignupScreen';
 import LoginScreen from './components/screens/LoginScreen';
 import CartScreen from './components/screens/CartScreen';
+//import Product from './components/Product';
+import ProductScreen from './components/screens/ProductScreen';
+
+
 
 
 export default function App() {
@@ -18,6 +22,8 @@ export default function App() {
           <Container>
             <Routes>
               <Route exact path="/" element={<HomeScreen />} />
+              {/* <Route exact path="/product/:id" element={<Product />} /> */}
+              <Route exact path="/product/:id" element={<ProductScreen />} />
               <Route exact path="/login" element={<LoginScreen />} />
               <Route exact path="/signup" element={<SignupScreen />} />
               <Route exact path="/cart" element={<CartScreen />} />
