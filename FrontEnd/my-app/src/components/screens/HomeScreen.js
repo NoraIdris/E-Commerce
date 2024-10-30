@@ -28,9 +28,9 @@ function HomeScreen() {
           <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
             <img src={product.image} alt={product.productname} style={{ width: '100%', height: 'auto' }} />
             <h3>{product.productname}</h3>
-            <h6>{product.category}</h6>
+            <h6>{product.productcategry}</h6>
             <p>{product.price}</p>
-            <p>{product.productsinfo}</p>
+            <p>{product.productinfo}</p>
           </Col>
         ))}
       </Row>
