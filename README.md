@@ -2,6 +2,8 @@ Projet E-commerce avec Django REST Framework et React.js
 
 Ce projet est une plateforme e-commerce développée avec Django REST Framework pour le backend et React.js avec Redux pour le frontend.
 
+Ce projet est la continuation d'un projet collectif réalisé en deux semaines à Ada Tech School lien: https://github.com/adatechschool/projet-collectif-plateforme-de-vente-de-meubles-ike-hack.git.
+
 L'application permet aux utilisateurs de naviguer, rechercher et acheter des meubles en ligne.
 
 ---
