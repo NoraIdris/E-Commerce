@@ -1,4 +1,4 @@
-Projet E-commerce avec Django REST Framework et React.js
+Projet E-commerce avec Django REST Framework et React.js (en cours)
 
 Ce projet est une plateforme e-commerce développée avec Django REST Framework pour le backend et React.js avec Redux pour le frontend.
 
