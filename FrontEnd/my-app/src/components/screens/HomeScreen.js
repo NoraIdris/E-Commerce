@@ -34,7 +34,7 @@ function HomeScreen() {
             <h6>{product.productcategry}</h6>
             <p>{product.price}</p>
             <p>{product.productinfo}</p> */}
-            <Product product={products} />
+            <Product product={product} />
           </Col>
         ))}
       </Row>
