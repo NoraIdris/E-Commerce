@@ -3,41 +3,41 @@ import { Container } from 'react-bootstrap';
 import axios from 'axios';
 import { Row, Col } from 'react-bootstrap';
 import Product from '../Product';
-
-
+import { listProducts } from "../../actions/productsActions";
+import {useDispatch,useSelector} from 'react-redux'
+import Loader from "../Loader";
+import Message from "../Message";
 
 function HomeScreen() {
-  const [products, setProducts] = useState([]);
+  const dispatch=useDispatch()
+  const productsList = useSelector((state)=>state.productsList);
+  const {error,loading,products}=productsList
 
   useEffect(() => {
-    async function fetchProducts() {
-      try {
-        const { data } = await axios.get('/api/products');
-        setProducts(data);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      }
-    }
-    fetchProducts();
-  }, []);
+    dispatch(listProducts())
+  }, [dispatch]);
 
   return (
     <Container>
       <br />
       <h1>Products</h1>
-
+      {
+        loading?(
+          <Loader/>
+        ):error ? (
+     <Message variant='danger'>{error}</Message>
+        ):(
+          
       <Row>
         {products.map((product) => (
           <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
-            {/* <img src={product.image} alt={product.productname} style={{ width: '100%', height: 'auto' }} />
-            <h3>{product.productname}</h3>
-            <h6>{product.productcategry}</h6>
-            <p>{product.price}</p>
-            <p>{product.productinfo}</p> */}
             <Product product={product} />
           </Col>
         ))}
       </Row>
+        )
+      }
+    
     </Container>
   );
 }

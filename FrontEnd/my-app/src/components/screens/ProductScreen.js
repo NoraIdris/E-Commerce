@@ -5,21 +5,22 @@ import Rating from "../Rating";
 import axios from "axios";
 
 function ProductScreen() {
-  const { id } = useParams(); // Extract ID from route params
+  const { id } = useParams(); 
 
-  const [product, setProduct] = useState(null); // State for product data
-  const [loading, setLoading] = useState(true); // State for loading
-  const [error, setError] = useState(null); // State for errors
+  const [product, setProduct] = useState(null); 
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState(null); 
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
         setLoading(true); 
-        const { data } = await axios.get(`/api/product/${id}`); // Fetch product data
+        const { data } = await axios.get(`/api/product/${id}`); 
         setProduct(data); 
         setLoading(false); 
       } catch (err) {
-        setError(err.message || "Error fetching product details"); // Set error message
+        setError(err.message || "Error fetching product details"); 
+        
         setLoading(false); 
       }
     };
@@ -28,7 +29,7 @@ function ProductScreen() {
   }, [id]);
 
   if (loading) return <h2>Loading...</h2>; 
-  if (error) return <h2 style={{ color: "red" }}>{error}</h2>; // Show error message if any
+  if (error) return <h2 style={{ color: "red" }}>{error}</h2>; 
 
   return (
     <Container>
