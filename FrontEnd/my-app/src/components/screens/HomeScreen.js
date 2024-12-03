@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { Container } from 'react-bootstrap';
-import axios from 'axios';
 import { Row, Col } from 'react-bootstrap';
 import Product from '../Product';
-import { listProducts } from "../../actions/productsActions";
+import { listProducts } from '../../actions/productsActions';
 import {useDispatch,useSelector} from 'react-redux'
-import Loader from '../Loader';
-import Message from '../Message';
-
+// import Loader from '../Loader';
+// import Message from '../Message';
 
 function HomeScreen() {
   const dispatch=useDispatch()
   const productsList = useSelector((state)=>state.productsList);
-  const {error,loading,products}=productsList
+  const {products}=productsList
 
   useEffect(() => {
     dispatch(listProducts())
@@ -22,12 +20,12 @@ function HomeScreen() {
     <Container>
       <br />
       <h1>Products</h1>
-      {
+      {/* {
         loading?(
           <Loader/>
         ):error ? (
      <Message variant='danger'>{error}</Message>
-        ):(
+        ):( */}
           
       <Row>
         {products.map((product) => (
@@ -36,8 +34,7 @@ function HomeScreen() {
           </Col>
         ))}
       </Row>
-        )
-      }
+        
     
     </Container>
   );

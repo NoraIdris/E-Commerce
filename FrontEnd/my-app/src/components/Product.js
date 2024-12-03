@@ -2,6 +2,8 @@ import React from 'react'
 import {Card} from "react-bootstrap"
 import Rating from '../components/Rating'
 import {Link} from 'react-router-dom'
+// import Loader from '../Loader';
+// import Message from '../Message';
 
 
 function Product({product}) {
