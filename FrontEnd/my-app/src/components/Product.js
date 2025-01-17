@@ -2,8 +2,7 @@ import React from 'react'
 import {Card} from "react-bootstrap"
 import Rating from '../components/Rating'
 import {Link} from 'react-router-dom'
-// import Loader from '../Loader';
-// import Message from '../Message';
+
 
 
 function Product({product}) {
@@ -22,7 +21,7 @@ function Product({product}) {
 
            <Card.Text as="div">
            <div className="my-3">
-                {product.rating}  from {product.numReviews}    reviews
+                {product.rating}  de  {product.numReviews}    Avis
             </div>
            </Card.Text>
             
@@ -31,7 +30,7 @@ function Product({product}) {
         </Card.Text>
         <Rating
                 value={product.rating}
-                text={`${product.numReviews} reviews`}
+                text={`${product.numReviews} Avis`}
                 color={"#f8e825"}
               />
         </Card.Body>

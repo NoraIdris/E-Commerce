@@ -1,48 +1,40 @@
-import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { Row, Col, Image, ListGroup, Button, Card, Container } from "react-bootstrap";
-import Rating from "../Rating";
-import axios from "axios";
+import React, { useEffect } from "react";
+import {Link,useParams} from 'react-router-dom'
+import {Row, Col, Image,ListGroup,Button,Card,Container} from 'react-bootstrap'
+import Rating from '../Rating'
+import { listProductDetails } from "../../actions/productsActions";
+import {useDispatch,useSelector} from 'react-redux'
+import Loader from "../Loader" 
+import Message from "../Message"
 
-function ProductScreen() {
-  const { id } = useParams(); 
-
-  const [product, setProduct] = useState(null); 
-  const [loading, setLoading] = useState(true); 
-  const [error, setError] = useState(null); 
-
+function ProductScreen({params}) {
+    const {id}= useParams()
+    const dispatch=useDispatch()
+    const productDetails = useSelector((state)=>state.productDetails);
+    const {error,loading,product}=productDetails
   useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        setLoading(true); 
-        const { data } = await axios.get(`/api/product/${id}`); 
-        setProduct(data); 
-        setLoading(false); 
-      } catch (err) {
-        setError(err.message || "Error fetching product details"); 
-        
-        setLoading(false); 
-      }
-    };
+  
+dispatch(listProductDetails(id))
 
-    fetchProduct(); 
-  }, [id]);
-
-  if (loading) return <h2>Loading...</h2>; 
-  if (error) return <h2 style={{ color: "red" }}>{error}</h2>; 
-
+  }, [dispatch,params]);
   return (
     <Container>
-      <Link to="/" className="btn btn-dark my-3">
-        Retourner
+    <div>
+          <Link to="/" className="btn btn-dark my-3">
+        Go Back
       </Link>
 
-      <Row>
+      {loading?(
+        <Loader/>
+      ): error?(
+        <Message variant='danger'>{error}</Message>
+      ):(
+        <Row>
         <Col md={6}>
           <Image src={product.image} alt={product.name} fluid />
         </Col>
 
-        <Col md={3}>
+    <Col md={3}>
           <ListGroup variant="flush">
             <ListGroup.Item>
               <h3>{product.productname}</h3>
@@ -50,16 +42,17 @@ function ProductScreen() {
             <ListGroup.Item>
               <Rating
                 value={product.rating}
-                text={`${product.numReviews} avis`}
-                color="#f8e825"
+                text={`${product.numReviews} Avis`}
+                color={"#f8e825"}
               />
             </ListGroup.Item>
-            <ListGroup.Item>Marque: {product.productbrand}</ListGroup.Item>
+            <ListGroup.Item>Brand: {product.productbrand} </ListGroup.Item>
             <ListGroup.Item>Description: {product.productinfo}</ListGroup.Item>
           </ListGroup>
-        </Col>
+    </Col>
 
-        <Col md={3}>
+
+    <Col md={3}>
           <Card>
             <ListGroup variant="flush">
               <ListGroup.Item>
@@ -72,25 +65,25 @@ function ProductScreen() {
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
-                  <Col>Statut:</Col>
-                  <Col>{product.stockcount > 0 ? "In Stock" : "Out of Stock"}</Col>
+                  <Col>Status:</Col>
+                  <Col>
+                    {product.stockcount > 0 ? "In Stock" : "Out of Stock"}
+                  </Col>
                 </Row>
               </ListGroup.Item>
-              <ListGroup.Item>
-                <Button
-                  className="btn-block btn-success"
-                  disabled={product.stockcount === 0}
-                  type="button"
-                >
-                 Ajouter Au Panier
-                </Button>
-              </ListGroup.Item>
+            <ListGroup.Item>
+                <Button className='btn-block btn-success' disabled={product.stockcount==0} type='button'>Ajouter au Panier</Button>
+            </ListGroup.Item>
             </ListGroup>
           </Card>
         </Col>
-      </Row>
+    </Row>
+
+      )}
+
+    </div>
     </Container>
-  );
+  )
 }
 
-export default ProductScreen;
+export default ProductScreen
