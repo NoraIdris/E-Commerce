@@ -21,7 +21,7 @@ dispatch(listProductDetails(id))
     <Container>
     <div>
           <Link to="/" className="btn btn-dark my-3">
-        Go Back
+          Retour
       </Link>
 
       {loading?(
@@ -46,7 +46,7 @@ dispatch(listProductDetails(id))
                 color={"#f8e825"}
               />
             </ListGroup.Item>
-            <ListGroup.Item>Brand: {product.productbrand} </ListGroup.Item>
+            <ListGroup.Item>Marque: {product.productbrand} </ListGroup.Item>
             <ListGroup.Item>Description: {product.productinfo}</ListGroup.Item>
           </ListGroup>
     </Col>
@@ -67,7 +67,7 @@ dispatch(listProductDetails(id))
                 <Row>
                   <Col>Status:</Col>
                   <Col>
-                    {product.stockcount > 0 ? "In Stock" : "Out of Stock"}
+                    {product.stockcount > 0 ? "En Stock" : "Out of Stock"}
                   </Col>
                 </Row>
               </ListGroup.Item>
